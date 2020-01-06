@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Notes</title>
+</head>
+<body>
+    <h1>Your Notes</h1>
+    <ul>
+        {% for object in objects_list %}
+        <li>
+            {{ object }} <small><a href="{{ object.get_delete_url }}">delete</a></small> <small><a href="{{ object.get_update_url }}">Update</a></small>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
