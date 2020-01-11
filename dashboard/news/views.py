@@ -7,6 +7,15 @@ from datetime import timedelta, timezone, datetime
 import os
 import shutil
 # Create your views here.
+
+def news_list(reques):
+    headlines = Headline.objects.all()
+    context = {
+        'object_list':headlines
+    }
+    return render(request, "new")
+
+
 def scrape(request):
 
     user_profile = UserProfile.objects.filter(user=request.user).first()
