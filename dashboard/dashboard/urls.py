@@ -16,12 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from django.conf.urls.static import static
-from news.views import scrape
+from news.views import scrape, news_list
+from finance.views import company_article_list,ChartData
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('notes/', include('notepad.url')),
-    path('scrape/', scrape)
+    path('scrape/', scrape),
+    path('home/',news_list),
+    path('companies/',company_article_list),
+    path('apichart/data',ChartData.as_view())
 ]
 
 if settings.DEBUG:
